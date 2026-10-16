@@ -3,7 +3,9 @@
   "version": "1.3.0",
   "description": "MVC framework for NodeJS",
   "scripts": {
-    "test": "npx c8 npx jest"
+    "test": "npx c8 npx jest",
+    "build": "rm -rf build && npx tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@ostro/auth": "^1.0.1",
@@ -47,5 +49,13 @@
   "bugs": {
     "url": "https://github.com/ostrojs/framework/issues"
   },
-  "homepage": "https://github.com/ostrojs/framework#readme"
+  "homepage": "https://github.com/ostrojs/framework#readme",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
 }
