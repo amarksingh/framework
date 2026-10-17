@@ -4,10 +4,10 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "declaration": true,
-    "declarationMap": false,
-    "sourceMap": false,
+    "declarationMap": true,
+    "sourceMap": true,
     "outDir": "./build",
-    "rootDir": ".",
+    "rootDir": "src",
     "skipLibCheck": true,
     "noImplicitAny": false,
     "strict": false,
@@ -21,8 +21,7 @@
     ]
   },
   "include": [
-    "./*.ts",
-    "**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",

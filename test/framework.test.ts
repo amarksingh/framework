@@ -1,5 +1,5 @@
 import pkg from '../package.json';
-import Application from '../index';
+import Application from '../src/index';
 import FoundationApp from '@ostro/foundation';
 
 describe('@ostro/framework meta-package', () => {
