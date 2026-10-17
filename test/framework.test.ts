@@ -1,4 +1,6 @@
 import pkg from '../package.json';
+import Application from '../index';
+import FoundationApp from '@ostro/foundation';
 
 describe('@ostro/framework meta-package', () => {
     test('package.json metadata and dependencies definitions', () => {
@@ -41,5 +43,18 @@ describe('@ostro/framework meta-package', () => {
         expect(pkg.keywords).toContain('framework');
         expect(pkg.repository.type).toBe('git');
         expect(pkg.repository.url).toContain('ostrojs/framework');
+    });
+
+    test('Application export matches foundation Application', () => {
+        expect(Application).toBeDefined();
+        expect(Application).toBe(FoundationApp);
+        const originalCwd = process.cwd();
+        try {
+            const app = new Application(__dirname);
+            expect(app).toBeInstanceOf(FoundationApp);
+            expect(app.basePath()).toContain('test');
+        } finally {
+            process.chdir(originalCwd);
+        }
     });
 });
