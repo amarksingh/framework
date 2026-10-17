@@ -2,6 +2,18 @@
   "name": "@ostro/framework",
   "version": "2.0.0-alpha.1",
   "description": "MVC framework for NodeJS",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./*": {
+      "types": "./build/*.d.ts",
+      "default": "./build/*.js"
+    }
+  },
   "scripts": {
     "test": "npx c8 npx jest",
     "build": "rm -rf build && npx tsc -p tsconfig.build.json",
@@ -50,8 +62,6 @@
     "url": "https://github.com/ostrojs/framework/issues"
   },
   "homepage": "https://github.com/ostrojs/framework#readme",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
   "files": [
     "build",
     "package.json",
